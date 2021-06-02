@@ -54,7 +54,7 @@ export default function Home(props) {
 
   return (
     <main>
-      <Metatags title="Home Page" description="Get the latest posts on our site" />
+      <Metatags title="Written Desk" description="A simple featured blogging app to get connected with others" />
 
       <div className="card card-info">
         <h2>💡 Welcome to the Era of Blogging(well it began)</h2>
