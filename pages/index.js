@@ -2,6 +2,7 @@ import PostFeed from '@components/PostFeed';
 import Metatags from '@components/Metatags';
 import Loader from '@components/Loader';
 import { firestore, fromMillis, postToJSON } from '@lib/firebase';
+import Link from 'next/link';
 
 import { useState } from 'react';
 
@@ -59,6 +60,7 @@ export default function Home(props) {
       <div className="card card-info">
         <h2>💡 Welcome to the Era of Blogging(well it began)</h2>
         <p>Sign up for an 👨‍🎤 account, ✍️ write posts, then 💞 heart content created by other users. All public content is server-rendered and search-engine optimized.</p>
+        <p>To know more click  <Link href="/about"><button className="btn-google">About</button></Link></p>
       </div>
      
       <PostFeed posts={posts} />
