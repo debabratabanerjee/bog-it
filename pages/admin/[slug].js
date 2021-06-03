@@ -78,7 +78,13 @@ function PostForm({ defaultValues, postRef, preview }) {
           <ReactMarkdown>{watch('content')}</ReactMarkdown>
         </div>
       )}
-
+      <button type="submit" className="btn-green" disabled={!isDirty || !isValid}>
+          Save Changes
+        </button>
+        <fieldset>
+          <input className={styles.checkbox} name="published" type="checkbox" ref={register} />
+          <label>Published</label>
+        </fieldset>
       <div className={preview ? styles.hidden : styles.controls}>
         <ImageUploader />
 
@@ -93,10 +99,7 @@ function PostForm({ defaultValues, postRef, preview }) {
 
         {errors.content && <p className="text-danger">{errors.content.message}</p>}
 
-        <fieldset>
-          <input className={styles.checkbox} name="published" type="checkbox" ref={register} />
-          <label>Published</label>
-        </fieldset>
+       
 
         <button type="submit" className="btn-green" disabled={!isDirty || !isValid}>
           Save Changes
