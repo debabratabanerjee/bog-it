@@ -60,7 +60,7 @@ function CreateNewPost() {
       slug,
       uid,
       username,
-      published: false,
+      published: true,
       content: '# hello world!',
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
