@@ -9,13 +9,13 @@ export default function PostContent({ post }) {
   return (
     <div className="card">
       <h1>{post?.title}</h1>
-      <button className="btn-google">
+      <label>
         Written by{' '}
         <Link href={`/${post.username}/`}>
           <a className="text-info">@{post.username}</a>
         </Link>{' '}
-        on {createdAt.toString()} and,<br/> updated on {updatedAt.toString()}
-      </button>
+        on <b>{createdAt.toString()}</b> and,<br/> updated on <b>{updatedAt.toString()}</b>
+      </label>
       <ReactMarkdown>{post?.content}</ReactMarkdown>
     </div>
   );
