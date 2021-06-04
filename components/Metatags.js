@@ -3,7 +3,7 @@ import Head from 'next/head';
 export default function Metatags({
   title = 'The writters blog ',
   description = 'A full fleged blogging site',
-  image = 'https://firebasestorage.googleapis.com/v0/b/blog-it-806bd.appspot.com/o/uploads%2F7YrRtmE216dryEnJA0QO0Pza4og1%2F1622634780888.jpeg?alt=media&token=b5ada2ac-bf9b-4864-a9d3-9a535ee8e3db',
+  image = 'https://firebasestorage.googleapis.com/v0/b/blog-it-806bd.appspot.com/o/logo%20and%20stuff%2Fandroid-chrome-192x192.png?alt=media&token=7d96ee92-a0c3-4a5b-a590-14252539275e',
 }) {
   return (
     <Head>
