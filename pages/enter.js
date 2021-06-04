@@ -39,7 +39,31 @@ function SignInButton() {
 
 // Sign out button
 function SignOutButton() {
-  return <button onClick={() => auth.signOut()}>Sign Out</button>;
+  return(<> <button onClick={() => auth.signOut()}>Sign Out</button><div >   
+      <h3 style={{marginTop:'100px'}}><i>Frequently Asked Questions</i></h3>
+
+      <details open>
+
+<summary style={{fontSize:'1.5rem'}}>How to upload image in a blog?</summary>
+
+Ans: You can get the idea by following the video given below:<hr/>
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/h9P03f3RhVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</details>
+<br/>
+<br/>
+
+<details >
+
+<summary style={{fontSize:'1.5rem'}}>What is Heart/Unheart?</summary>
+
+Ans: Well this is a feature simple as Like and not liking a Post.
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/OCb73M0RPgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</details>  
+     </div></>
+  );
+  
 }
 
 // Username form

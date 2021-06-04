@@ -43,7 +43,7 @@ export default function About() {
         <div >   
       <h3 style={{marginTop:'100px'}}><i>Frequently Asked Questions</i></h3>
 
-      <details>
+      <details open>
 
 <summary style={{fontSize:'1.5rem'}}>How to upload image in a blog?</summary>
 

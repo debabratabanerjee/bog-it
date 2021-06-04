@@ -14,7 +14,7 @@ export default function PostContent({ post }) {
         <Link href={`/${post.username}/`}>
           <a className="text-info">@{post.username}</a>
         </Link>{' '}
-        on <b>{createdAt.toString()}</b> and,<br/> updated on <b>{updatedAt.toString()}</b>
+        on <b>{createdAt.toString()}</b> and,<br/> updated on <b>{updatedAt.toString()}</b><hr/>
       </label>
       <ReactMarkdown>{post?.content}</ReactMarkdown>
     </div>
