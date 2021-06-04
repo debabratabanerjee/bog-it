@@ -59,8 +59,24 @@ export default function Home(props) {
 
       <div className="card card-info">
         <h2>💡 Welcome to the Era of Blogging(well it began)</h2>
-        <p>Sign up for an 👨‍🎤 account, ✍️ write posts, then 💞 heart content created by other users. All public content is server-rendered and search-engine optimized.</p>
-        <p>To know more click  <Link href="/about"><button className="btn-google">About</button></Link></p>
+        <center>
+        <h3>Word of the Day</h3>
+        <table style={{border:'1px solid white',}} >
+  <tr>
+    <th>Word:</th>
+    <td>rigmarole</td>
+  </tr>
+  <tr>
+    <th rowspan="2">Meaning:</th>
+    <tr>1 : confused or meaningless talk</tr>
+    <tr>2 : a complex and sometimes ritualistic procedure</tr>
+  </tr>
+  
+</table>
+
+<hr/>
+        <p>👨‍🎤 account, ✍️ write posts, then 💞 heart content created by other users.</p>
+        <p>To know more click  <Link href="/about"><button className="btn-google">About</button></Link></p></center>
       </div>
      
       <PostFeed posts={posts} />
