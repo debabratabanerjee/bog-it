@@ -77,6 +77,7 @@ function CreateNewPost() {
 
   return (
     <form onSubmit={createPost}>
+      <h3>Post Title</h3>
       <input
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -84,11 +85,12 @@ function CreateNewPost() {
         className={styles.input}
       />
       <p>
-        <strong>Slug:</strong> {slug}
+        <strong>Slug/url:</strong><code>siteUrl/username/{slug}</code>
       </p>
-      <button type="submit" disabled={!isValid} className="btn-green">
-        Create New Post
-      </button>
+      <code><center><strong>#remeber no emojis 😢 or other languages on the <u>POST TITLE</u> for time being.You can use emojis and other languages inside the post.<br/>Working on that 🤠</strong></center></code>
+      <center><button type="submit" enable={!isValid} className="btn-green">
+        Crate and Go To your New Post Box
+      </button></center>
     </form>
   );
 }

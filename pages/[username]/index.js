@@ -38,7 +38,7 @@ export async function getServerSideProps({ query }) {
 export default function UserProfilePage({ user, posts }) {
   return (
     <main>
-      <Metatags title={user.username} description={`${user.username}'s public profile`} />
+      <Metatags title={user.username} description={`${user}'s public profile`} />
       <UserProfile user={user} />
       <PostFeed posts={posts} />
     </main>
