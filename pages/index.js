@@ -58,7 +58,7 @@ export default function Home(props) {
       <Metatags title="Written Desk" description="A simple featured blogging app to get connected with others" />
 
       <div className="card card-info">
-        <h2>💡 Welcome to the Era of Blogging(well it began)</h2>
+        <h2>💡 Welcome to the Era of Blogging(well it began) with Written Desk</h2>
         <center>
         <h3>Word of the Day<br/> 5,June</h3>
         <table style={{border:'1px solid white',}} >
