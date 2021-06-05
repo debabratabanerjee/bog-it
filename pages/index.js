@@ -64,12 +64,13 @@ export default function Home(props) {
         <table style={{border:'1px solid white',}} >
   <tr>
     <th>Word:</th>
-    <td>rigmarole</td>
+    <td>didacticplay</td>
   </tr>
   <tr>
-    <th rowspan="2">Meaning:</th>
-    <tr>1 : confused or meaningless talk</tr>
-    <tr>2 : a complex and sometimes ritualistic procedure</tr>
+    <th rowspan="3">Meaning:</th>
+    <tr>1 a : designed or intended to teach</tr>
+    <tr>1 b : intended to convey instruction and information as well as pleasure and entertainment</tr>
+    <tr>2 :  making moral observations</tr>
   </tr>
   
 </table>
