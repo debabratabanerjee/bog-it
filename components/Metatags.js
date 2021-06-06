@@ -1,9 +1,9 @@
-  import Head from 'next/head';
+import Head from 'next/head';
 
 export default function Metatags({
   title = 'The writters blog ',
   description = 'A full fleged blogging site',
-  //image = 'https://firebasestorage.googleapis.com/v0/b/blog-it-806bd.appspot.com/o/logo%20and%20stuff%2Fandroid-chrome-512x512.png?alt=media&token=4bb40530-6c0e-49e5-ab19-8786d1ae3cef',
+  image = 'https://firebasestorage.googleapis.com/v0/b/blog-it-806bd.appspot.com/o/logo%20and%20stuff%2Fandroid-chrome-192x192.png?alt=media&token=7d96ee92-a0c3-4a5b-a590-14252539275e',
 }) {
   return (
     <Head>
