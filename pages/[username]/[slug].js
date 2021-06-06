@@ -3,7 +3,8 @@ import PostContent from '@components/PostContent';
 import HeartButton from '@components/HeartButton';
 import AuthCheck from '@components/AuthCheck';
 import Metatags from '@components/Metatags';
-import { UserContext } from '@lib/context';
+import { UserContext } from '@lib/context'
+import downloadURL from '@components/ImageUploader'
 import { firestore, getUserWithUsername, postToJSON } from '../../lib/firebase';
 
 import Link from 'next/link';
@@ -61,7 +62,7 @@ export default function Post(props) {
 
   return (
     <main className={styles.container}>
-      <Metatags title={post.title} description={"Click to see the amazing post🎭...."} image={post.image}/>
+      <Metatags title={post.title} description={"Click to see the amazing post🎭...."} image={`(${downloadURL})`} />
       
       <section>
         <PostContent post={post} />
