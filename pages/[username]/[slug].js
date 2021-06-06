@@ -61,7 +61,7 @@ export default function Post(props) {
 
   return (
     <main className={styles.container}>
-      <Metatags title={post.title} description={"Click to see the amazing post🎭...."} />
+      <Metatags title={post.title} description={"Click to see the amazing post🎭...."} image={post.image}/>
       
       <section>
         <PostContent post={post} />
