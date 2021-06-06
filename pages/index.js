@@ -65,7 +65,7 @@ export default function Home(props) {
   <tr>
     <th>Word:</th>
     <td>glean</td>
-    <td>glean  \GLEEN\   verb</td>
+    <td>glean  \GLEEN\   verb</td>  
   </tr>
   <tr>
     <th rowspan="2">Meaning:</th>
