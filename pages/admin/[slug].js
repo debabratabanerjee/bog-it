@@ -9,8 +9,10 @@ import { useRouter } from 'next/router';
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore';
 import { useForm } from 'react-hook-form';
 import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
+import ReactCircleModal from 'react-circle-modal'
 
 export default function AdminPostEdit(props) {
   return (
@@ -35,9 +37,38 @@ function PostManager() {
         <>
           <section>
             <h1>{post.title}</h1>
-            <button style={{position:'sticky'}} >
-          Save Changes
+            
+            
+            
+            <ReactCircleModal
+      backgroundColor="#97349a"
+      toogleComponent={onClick => (
+        <button style={{float: 'right',position:  'sticky', top:"20%",backgroundColor: 'cyan'}} onClick={onClick}>
+          ⚙️Text Guide
         </button>
+      )}
+      // Optional fields and their default values
+      offsetX={0}
+      offsetY={0}
+    >
+      {(onClick) => (
+        <div style={{ backgroundColor: '#fff', padding: '1em' }}>
+          <h2>
+            Table of content: </h2>
+            <table><ul>
+            <li><Link href="#thought">Header</Link></li>
+            <li><Link href="#features">Features</Link></li>
+            <li><Link href="#faq">FAQ</Link></li>
+            <li><Link href="#thanks">Thank You Note</Link></li>
+            </ul>
+            </table>
+          <button onClick={onClick}>
+            Click here to close modal
+          </button>
+        </div>
+      )}
+    </ReactCircleModal>
+        
             <p>ID: {post.slug}</p>
 
             <PostForm postRef={postRef} defaultValues={post} preview={preview} />
@@ -78,7 +109,7 @@ function PostForm({ defaultValues, postRef, preview }) {
     <form onSubmit={handleSubmit(updatePost)}>
       {preview && (
         <div className="card">
-          <ReactMarkdown>{watch('content')}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[gfm]}>{watch('content')}</ReactMarkdown>
         </div>
       )}
       <button type="submit" className="btn-green" disabled={!isDirty || !isValid}>

@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import ReactMarkdown from 'react-markdown';
+import gfm from 'remark-gfm';
+
 
 // UI component for main post content
 export default function PostContent({ post }) {
@@ -16,7 +18,7 @@ export default function PostContent({ post }) {
         </Link>{' '}
         on <b>{createdAt.toString()}</b> and,<br/> updated on <b>{updatedAt.toString()}</b><hr/>
       </label>
-      <ReactMarkdown>{post?.content}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[gfm]}>{post?.content}</ReactMarkdown>
     </div>
   );
 }
