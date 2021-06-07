@@ -55,15 +55,10 @@ function PostManager() {
         <div style={{ backgroundColor: '#fff', padding: '1em' }}>
           <h2>
             Table of content: </h2>
-            <table><ul>
-            <li><Link href="#thought">Header</Link></li>
-            <li><Link href="#features">Features</Link></li>
-            <li><Link href="#faq">FAQ</Link></li>
-            <li><Link href="#thanks">Thank You Note</Link></li>
-            </ul>
-            </table>
+            <h1>Coming Soon</h1>
+            
           <button onClick={onClick}>
-            Click here to close modal
+            Go Back to Edit Post
           </button>
         </div>
       )}
