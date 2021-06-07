@@ -60,7 +60,7 @@ export default function Home(props) {
       <div className="card card-info">
         <h2>💡 Welcome to the Era of Blogging(well it began) with Written Desk</h2>
         <center>
-        <h3>Word of the Day<br/> 6,June</h3>
+        <h3>Word of the Day<br/> 7, June</h3>
         <table style={{border:'1px solid white',}} >
   <tr>
     <th>Word:</th>
