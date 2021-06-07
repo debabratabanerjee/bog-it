@@ -64,13 +64,13 @@ export default function Home(props) {
         <table style={{border:'1px solid white',}} >
   <tr>
     <th>Word:</th>
-    <td>glean</td>
-    <td>glean  \GLEEN\   verb</td>  
+    <td>solipsism</td>
+    <td>solipsism  \SOH-lip-sih-zum\   noun</td>  
   </tr>
   <tr>
-    <th rowspan="2">Meaning:</th>
-    <tr>1 : to gather grain or other produce left by reapers</tr>
-    <tr>2 : to gather information or material bit by bi</tr>
+    <th rowSpan="1">Meaning:</th>
+    <tr>1 : a theory holding that the self can know nothing but its own modifications and that the self is the only existent thing; also : extreme egocentrism</tr>
+    
   </tr>
   
 </table>

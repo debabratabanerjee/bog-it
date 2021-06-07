@@ -35,6 +35,9 @@ function PostManager() {
         <>
           <section>
             <h1>{post.title}</h1>
+            <button style={{position:'sticky'}} >
+          Save Changes
+        </button>
             <p>ID: {post.slug}</p>
 
             <PostForm postRef={postRef} defaultValues={post} preview={preview} />
@@ -81,6 +84,7 @@ function PostForm({ defaultValues, postRef, preview }) {
       <button type="submit" className="btn-green" disabled={!isDirty || !isValid}>
           Save Changes
         </button>
+        
         <fieldset>
           <input className={styles.checkbox} name="published" type="checkbox" ref={register} />
           <label>Published</label>
@@ -103,7 +107,8 @@ function PostForm({ defaultValues, postRef, preview }) {
 
         <button type="submit" className="btn-green" disabled={!isDirty || !isValid}>
           Save Changes
-        </button>
+        </button  >
+        
       </div>
     </form>
   );

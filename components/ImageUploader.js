@@ -64,7 +64,7 @@ export default function ImageUploader() {
         </>
       )}
       <CopyToClipboard text={`![alt](${downloadURL})`} onCopy={onCopyText}>
-            <span>{isCopied ? "Copied!" : <MdContentCopy />}</span>
+            <span>{isCopied ? "Copied! Now paste the url anywhere inside the post" : <MdContentCopy />}</span>
           </CopyToClipboard>
       {downloadURL && <code className="upload-snippet">{`![alt](${downloadURL})`}</code>}
       
