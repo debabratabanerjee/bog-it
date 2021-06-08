@@ -11,12 +11,14 @@ export default function PostContent({ post }) {
   return (
     <div className="card">
       <h1>{post?.title}</h1>
+      
+
       <label>
         Written by{' '}
         <Link href={`/${post.username}/`}>
           <a className="text-info">@{post.username}</a>
         </Link>{' '}
-        on <b>{createdAt.toString()}</b> and,<br/> updated on <b>{updatedAt.toString()}</b><hr/>
+        on <i>{createdAt.toString()}</i> and,<br/> updated on <i>{updatedAt.toString()}</i><hr/>
       </label>
       <ReactMarkdown remarkPlugins={[gfm]}>{post?.content}</ReactMarkdown>
     </div>
