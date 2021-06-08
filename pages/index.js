@@ -65,7 +65,7 @@ export default function Home(props) {
   <tr>
     <th>Word:</th>
     <td>bumptious</td>
-    <td> \BUMP-shus\   adjective/td>  
+    <td> \BUMP-shus\   adjective</td>  
   </tr>
   <tr>
     <th rowSpan="1">Meaning:</th>
