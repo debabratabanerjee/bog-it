@@ -44,7 +44,9 @@ function CreateNewPost() {
   const [title, setTitle] = useState('');
 
   // Ensure slug is URL safe
-  const slug = encodeURI(kebabCase(title));
+ // const slug = encodeURI(kebabCase(title));
+
+  const slug = (kebabCase(title));
 
   // Validate length
   const isValid = title.length > 3 && title.length < 100;
@@ -88,7 +90,7 @@ function CreateNewPost() {
       <p>
         <strong>Slug/url:</strong><code>siteUrl/username/{slug}</code>
       </p>
-      <code><center><strong>#remeber no emojis 😢 or other languages on the <u>POST TITLE</u> for time being.You can use emojis and other languages inside the post.<br/>Working on that 🤠</strong></center></code>
+      <code><center><strong>#remeber emojis 🤠😱🤪 or other languages(except english) on the <u>POST TITLE</u><br/>Is not SEO friendly</strong></center></code>
       <center><button type="submit" enable={!isValid} className="btn-green">
         Crate and Go To your New Post Box
       </button></center>
