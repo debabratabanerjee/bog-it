@@ -62,7 +62,7 @@ export default function Post(props) {
 
   return (
     <main className={styles.container}>
-      <Metatags title={post.title} description={"Click to see the amazing post🎭...."} image={post.content||'https://firebasestorage.googleapis.com/v0/b/blog-it-806bd.appspot.com/o/logo%20and%20stuff%2Ftenor.png?alt=media&token=8a20f4c1-acc5-4e26-838f-d87f8bc30505'} />
+      <Metatags title={post.title} description={"Click to see the amazing post🎭...."} image={post.content} />
       
       <section>
         <PostContent post={post} />
