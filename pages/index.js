@@ -60,16 +60,16 @@ export default function Home(props) {
       <div className="card card-info">
         <h2>💡 Welcome to the Era of Blogging(well it began) with Written Desk</h2>
         <center>
-        <h3>Word of the Day<br/> 7, June</h3>
+        <h3>Word of the Day<br/> 8, June</h3>
         <table style={{border:'1px solid white',}} >
   <tr>
     <th>Word:</th>
-    <td>solipsism</td>
-    <td>solipsism  \SOH-lip-sih-zum\   noun</td>  
+    <td>bumptious</td>
+    <td> \BUMP-shus\   adjective/td>  
   </tr>
   <tr>
     <th rowSpan="1">Meaning:</th>
-    <tr>1 : a theory holding that the self can know nothing but its own modifications and that the self is the only existent thing; also : extreme egocentrism</tr>
+    <tr>1 : presumptuously, obtusely, and often noisily self-assertive : obtrusive</tr>
     
   </tr>
   
