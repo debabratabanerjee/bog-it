@@ -1,8 +1,8 @@
 import Head from 'next/head';
 
 export default function Metatags({
-  title = 'The writters blog ',
-  description = 'A full fleged blogging site',
+  title = 'Written Desk',
+  description = 'A simple featured blogging app to get connected with others',
   image = 'https://firebasestorage.googleapis.com/v0/b/blog-it-806bd.appspot.com/o/logo%20and%20stuff%2Fandroid-chrome-192x192.png?alt=media&token=7d96ee92-a0c3-4a5b-a590-14252539275e',
 }) {
   return (
