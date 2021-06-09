@@ -64,12 +64,14 @@ export default function Home(props) {
         <table style={{border:'1px solid white',}} >
   <tr>
     <th>Word:</th>
-    <td>bumptious</td>
-    <td> \BUMP-shus\   adjective</td>  
+    <td><strong>enjoin</strong></td>
+    <td> \in-JOIN\   verb</td>  
   </tr>
   <tr>
-    <th rowSpan="1">Meaning:</th>
-    <tr>1 : presumptuously, obtusely, and often noisily self-assertive : obtrusive</tr>
+    <th rowSpan="3">Meaning:</th>
+    <tr>1 : to direct or impose by authoritative order or with urgent admonition</tr>
+    <tr>2 a : forbid, prohibit</tr>
+    <tr>&nbsp;&nbsp;b : to prohibit by a judicial order : put an injunction on</tr>
     
   </tr>
   
