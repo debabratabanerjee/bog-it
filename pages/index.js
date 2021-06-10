@@ -64,8 +64,8 @@ export default function Home(props) {
         <table style={{border:'1px solid white',}} >
   <tr>
     <th>Word:</th>
-    <td><strong>enjoin</strong></td>
-    <td> \in-JOIN\   verb</td>  
+    <td><strong>majuscule</strong></td>
+    <td> \MAJ-uh-skyool\   noun</td>  
   </tr>
   <tr>
     <th rowSpan="3">Meaning:</th>

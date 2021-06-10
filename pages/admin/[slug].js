@@ -55,8 +55,17 @@ function PostManager() {
         <div style={{ backgroundColor: '#fff', padding: '1em' }}>
           <h2>
             Table of content: </h2>
-            <h1>Coming Soon</h1>
             
+
+                
+                <div id="car"></div>
+                 # heading 1<br/>
+                ## heading 2<br/>
+               ### heading 3<br/>
+              #### heading 4<br/>
+             ##### heading 5<br/>
+            ###### heading 6<br/>  
+          <details output><summary>See the output</summary><h1>heading 1</h1><h2>heading 2</h2><h3>heading 3</h3><h4>heading 4</h4><h5>heading 5</h5><h6>heading 6</h6></details>
           <button onClick={onClick}>
             Go Back to Edit Post
           </button>
