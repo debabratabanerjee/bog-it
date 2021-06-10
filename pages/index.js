@@ -68,10 +68,9 @@ export default function Home(props) {
     <td> \MAJ-uh-skyool\   noun</td>  
   </tr>
   <tr>
-    <th rowSpan="3">Meaning:</th>
-    <tr>1 : to direct or impose by authoritative order or with urgent admonition</tr>
-    <tr>2 a : forbid, prohibit</tr>
-    <tr>&nbsp;&nbsp;b : to prohibit by a judicial order : put an injunction on</tr>
+    <th rowSpan="1">Meaning:</th>
+    <tr>1 : a large letter (such as a capital)</tr>
+    
     
   </tr>
   
