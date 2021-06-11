@@ -64,12 +64,13 @@ export default function Home(props) {
         <table style={{border:'1px solid white',}} >
   <tr>
     <th>Word:</th>
-    <td><strong>majuscule</strong></td>
-    <td> \MAJ-uh-skyool\   noun</td>  
+    <td><strong>poignant</strong></td>
+    <td>\POY-nyunt\  adjective</td>  
   </tr>
   <tr>
     <th rowSpan="1">Meaning:</th>
-    <tr>1 : a large letter (such as a capital)</tr>
+    <tr>1 : painfully affecting the feelings : piercing</tr>
+    <tr>2 : pleasurably stimulating</tr>
     
     
   </tr>
