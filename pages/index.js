@@ -58,27 +58,10 @@ export default function Home(props) {
       <Metatags title="Written Desk" description = 'A simple featured blogging app to get connected with others'/>
 
       <div className="card card-info">
-        <h2>💡 Welcome to the Era of Blogging(well it began) with Written Desk</h2>
-        <center>
-        <h3>Word of the Day<br/> 10 , June</h3>
-        <table style={{border:'1px solid white',}} >
-  <tr>
-    <th>Word:</th>
-    <td><strong>poignant</strong></td>
-    <td>\POY-nyunt\  adjective</td>  
-  </tr>
-  <tr>
-    <th rowSpan="1">Meaning:</th>
-    <tr>1 : painfully affecting the feelings : piercing</tr>
-    <tr>2 : pleasurably stimulating</tr>
-    
-    
-  </tr>
-  
-</table>
-
-<hr/>
-        <p>👨‍🎤 account, ✍️ write posts, then 💞 heart content created by other users.</p>
+      <center>
+        <h2>💡 Welcome to Written Desk</h2>
+        <hr/>
+        <p>👨‍🎤  ✍️  💞 </p>
         <p>To know more click  <Link href="/about"><button className="btn-google">About</button></Link></p></center>
       </div>
      
