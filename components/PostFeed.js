@@ -19,7 +19,7 @@ function PostItem({ post, admin = false }) {
 
       <Link href={`/${post.username}/${post.slug}`}>
         <h2>
-          <a>{post.title}...<br/><pre><blockquote>🕵🏻Tap to 👁 the post🕵🏻</blockquote></pre></a>
+          <a>{post.title}...<br/><pre><p>🕵🏻Tap to 👁 the post🕵🏻</p></pre></a>
         </h2>
         
       </Link>

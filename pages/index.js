@@ -54,12 +54,12 @@ export default function Home(props) {
   };
 
   return (
-    <main>
+    <main style={{backgroundImage: "url(/Sun-Tornado.svg)"}}>
       <Metatags title="Written Desk" description = 'A simple featured blogging app to get connected with others'/>
 
-      <div className="card card-info">
+      <div className="card card-info" style={{backgroundImage: "url(/OIP.jpg)", backgroundRepeat: 'no-repeat', backgroundSize:'cover'}}>
       <center>
-        <h2>💡 Welcome to Written Desk</h2>
+        <h2 style={{backgroundColor:'black', opacity:'80%',borderRadius:'70%' }}>💡 Welcome to Written Desk</h2>
         <hr/>
         <p>👨‍🎤  ✍️  💞 </p>
         <p>To know more click  <Link href="/about"><button className="btn-google">About</button></Link></p></center>
