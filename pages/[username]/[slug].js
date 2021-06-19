@@ -4,6 +4,8 @@ import HeartButton from '@components/HeartButton';
 import AuthCheck from '@components/AuthCheck';
 import Metatags from '@components/Metatags';
 import { UserContext } from '@lib/context'
+import { RWebShare } from "react-web-share";
+import { FiShare } from 'react-icons/fi';
 
 import { firestore, getUserWithUsername, postToJSON } from '../../lib/firebase';
 
@@ -72,6 +74,17 @@ export default function Post(props) {
         <p>
           <strong>{post.heartCount || 0} 🤍</strong>
         </p>
+        <RWebShare
+        data={{
+          text: post.title,
+          url: `/${post.username}/${post.slug}`,
+          title: "Share this article wherever you want"
+        }}
+        onClick={() => console.info("share successful!")}
+      >
+        <button>Share<FiShare/></button>
+      </RWebShare>
+
 
         <AuthCheck
           fallback={

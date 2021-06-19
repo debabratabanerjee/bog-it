@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { FcShare } from 'react-icons/fc';
+import { RWebShare } from "react-web-share";
 
 export default function PostFeed({ posts, admin }) {
   return posts ? posts.map((post) => <PostItem post={post} key={post.slug} admin={admin} />) : null;
@@ -16,6 +18,18 @@ function PostItem({ post, admin = false }) {
           <strong>By @{post.username}</strong>
         </a>
       </Link>
+      <div style={{float: 'right'}}>
+      <RWebShare  
+        data={{
+          text: "Like humans, flamingos make friends for life",
+          url: `/${post.username}/${post.slug}`,
+          title: "Share this article on Flamingos"
+        }}
+        onClick={() => console.info("share successful!")}
+      >
+        <FcShare size={30}/>
+      </RWebShare>
+      </div>
 
       <Link href={`/${post.username}/${post.slug}`}>
         <h2>
@@ -28,6 +42,7 @@ function PostItem({ post, admin = false }) {
         <span>
           {wordCount} words. {minutesToRead} min read 
         </span>
+       
         <span className="push-left">💗 {post.heartCount || 0} Hearts</span>
       </footer>
 
