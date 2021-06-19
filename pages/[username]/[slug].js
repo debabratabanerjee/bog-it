@@ -76,7 +76,7 @@ export default function Post(props) {
         </p>
         <RWebShare
         data={{
-          text: post.title +"by"+ post.username,
+          text: post.title +" by "+ post.username,
           url: `/${post.username}/${post.slug}`,
           title: "Share this article wherever you want"
         }}

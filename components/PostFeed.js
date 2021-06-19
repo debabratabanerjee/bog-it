@@ -21,7 +21,7 @@ function PostItem({ post, admin = false }) {
       <div style={{float: 'right'}}>
       <RWebShare  
         data={{
-          text: post.title +"by"+ post.username,
+          text: post.title +" by "+ post.username,
           url: `/${post.username}/${post.slug}`,
           title: "Share this article on Flamingos"
         }}
