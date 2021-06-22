@@ -23,7 +23,7 @@ function PostItem({ post, admin = false }) {
         data={{
           text: post.title +" by "+ post.username,
           url: `/${post.username}/${post.slug}`,
-          title: "Share this article on Flamingos"
+          title: "Share as much as you want"
         }}
         onClick={() => console.info("share successful!")}
       >
