@@ -29,7 +29,7 @@ export async function getServerSideProps({ query }) {
       .collection('posts')
       .where('published', '==', true)
       .orderBy('createdAt', 'desc')
-      //.limit(5);
+      .limit(5);
     posts = (await postsQuery.get()).docs.map(postToJSON);
   }
 
