@@ -1,4 +1,7 @@
+Welcome 
+Its name is writtendesk
 
+Created using react and firebase , next.js as the frame work.
 
 Build a complex webapp inspired by sites Dev.to and Medium, featuring...
 
