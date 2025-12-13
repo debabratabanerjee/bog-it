@@ -1,6 +1,7 @@
 import { auth, firestore, googleAuthProvider } from '@lib/firebase';
 import { UserContext } from '@lib/context';
 import Metatags from '@components/Metatags';
+import toast from 'react-hot-toast';
 
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
@@ -28,7 +29,7 @@ function SignInButton() {
   return (
     <>
       <button className="btn-google" onClick={signInWithGoogle}>
-        <img src={'/google.png'} width="30px" /> Sign in with Google
+        <img src={'/google.png'} width="30px" alt="Google logo" /> Sign in with Google
       </button>
       <button onClick={() => auth.signInAnonymously()}>
         Sign in Anonymously
@@ -47,7 +48,7 @@ function SignOutButton() {
 <summary style={{fontSize:'1.5rem'}}>How to upload image in a blog?</summary>
 
 Ans: You can get the idea by following the video given below:<hr/>
-<iframe width="100%" height="300px" src="https://www.youtube.com/embed/h9P03f3RhVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/h9P03f3RhVw" title="How to upload image in a blog tutorial" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 </details>
 <br/>
@@ -58,7 +59,7 @@ Ans: You can get the idea by following the video given below:<hr/>
 <summary style={{fontSize:'1.5rem'}}>What is Heart/Unheart?</summary>
 
 Ans: Well this is a feature simple as Like and not liking a Post.
-<iframe width="100%" height="300px" src="https://www.youtube.com/embed/OCb73M0RPgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="100%" height="300px" src="https://www.youtube.com/embed/OCb73M0RPgo" title="Heart and Unheart feature explanation" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
 
 </details>  
      </div></>
@@ -77,16 +78,23 @@ function UsernameForm() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    // Create refs for both documents
-    const userDoc = firestore.doc(`users/${user.uid}`);
-    const usernameDoc = firestore.doc(`usernames/${formValue}`);
+    try {
+      // Create refs for both documents
+      const userDoc = firestore.doc(`users/${user.uid}`);
+      const usernameDoc = firestore.doc(`usernames/${formValue}`);
 
-    // Commit both docs together as a batch write.
-    const batch = firestore.batch();
-    batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName });
-    batch.set(usernameDoc, { uid: user.uid });
+      // Commit both docs together as a batch write.
+      const batch = firestore.batch();
+      batch.set(userDoc, { username: formValue, photoURL: user.photoURL, displayName: user.displayName });
+      batch.set(usernameDoc, { uid: user.uid });
 
-    await batch.commit();
+      await batch.commit();
+      
+      toast.success(`Welcome, @${formValue}!`);
+    } catch (error) {
+      console.error('Error creating username:', error);
+      toast.error('Failed to create username. Please try again.');
+    }
   };
 
   const onChange = (e) => {
@@ -139,15 +147,6 @@ function UsernameForm() {
           <button type="submit" className="btn-green" disabled={!isValid}>
             Choose
           </button>
-
-          <h3>Debug State</h3>
-          <div>
-            Username: {formValue}
-            <br />
-            Loading: {loading.toString()}
-            <br />
-            Username Valid: {isValid.toString()}
-          </div>
         </form>
       </section>
     )

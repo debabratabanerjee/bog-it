@@ -14,9 +14,7 @@ function PostItem({ post, admin = false }) {
   return (
     <div className="card">
       <Link href={`/${post.username}`}>
-        <a>
-          <strong>By @{post.username}</strong>
-        </a>
+        <strong>By @{post.username}</strong>
       </Link>
       <div style={{float: 'right'}}>
       <RWebShare  
@@ -33,9 +31,8 @@ function PostItem({ post, admin = false }) {
 
       <Link href={`/${post.username}/${post.slug}`}>
         <h2>
-          <a>{post.title}...<br/><pre><p>🕵🏻Tap to 👁 the post🕵🏻</p></pre></a>
+          {post.title}...<br/><pre><p>🕵🏻Tap to 👁 the post🕵🏻</p></pre>
         </h2>
-        
       </Link>
 
       <footer>

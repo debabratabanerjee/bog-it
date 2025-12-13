@@ -15,8 +15,8 @@ export default function PostContent({ post }) {
 
       <label>
         Written by{' '}
-        <Link href={`/${post.username}/`}>
-          <a className="text-info">@{post.username}</a>
+        <Link href={`/${post.username}/`} className="text-info">
+          @{post.username}
         </Link>{' '}
         on <i>{createdAt.toString()}</i> and,<br/> updated on <i>{updatedAt.toString()}</i><hr/>
       </label>

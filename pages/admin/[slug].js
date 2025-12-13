@@ -27,8 +27,14 @@ function PostManager() {
 
   const router = useRouter();
   const { slug } = router.query;
+  
+  const uid = auth.currentUser?.uid;
+  
+  if (!uid || !slug) {
+    return <div>Loading...</div>;
+  }
 
-  const postRef = firestore.collection('users').doc(auth.currentUser.uid).collection('posts').doc(slug);
+  const postRef = firestore.collection('users').doc(uid).collection('posts').doc(slug);
   const [post] = useDocumentDataOnce(postRef);
 
   return (
@@ -98,15 +104,20 @@ function PostForm({ defaultValues, postRef, preview }) {
   const { isValid, isDirty } = formState;
 
   const updatePost = async ({ content, published }) => {
-    await postRef.update({
-      content,
-      published,
-      updatedAt: serverTimestamp(),
-    });
+    try {
+      await postRef.update({
+        content,
+        published,
+        updatedAt: serverTimestamp(),
+      });
 
-    reset({ content, published });
+      reset({ content, published });
 
-    toast.success('Post updated successfully!');
+      toast.success('Post updated successfully!');
+    } catch (error) {
+      console.error('Error updating post:', error);
+      toast.error('Failed to update post. Please try again.');
+    }
   };
 
   return (
@@ -155,9 +166,14 @@ function DeletePostButton({ postRef }) {
   const deletePost = async () => {
     const doIt = confirm('are you sure!');
     if (doIt) {
-      await postRef.delete();
-      router.push('/admin');
-      toast('post annihilated ', { icon: '🗑️' });
+      try {
+        await postRef.delete();
+        router.push('/admin');
+        toast('post annihilated ', { icon: '🗑️' });
+      } catch (error) {
+        console.error('Error deleting post:', error);
+        toast.error('Failed to delete post. Please try again.');
+      }
     }
   };
 

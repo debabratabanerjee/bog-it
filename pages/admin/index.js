@@ -24,7 +24,13 @@ export default function AdminPostsPage(props) {
 }
 
 function PostList() {
-  const ref = firestore.collection('users').doc(auth.currentUser.uid).collection('posts');
+  const uid = auth.currentUser?.uid;
+  
+  if (!uid) {
+    return <div>Loading...</div>;
+  }
+  
+  const ref = firestore.collection('users').doc(uid).collection('posts');
   const query = ref.orderBy('createdAt', 'desc');
   const [querySnapshot] = useCollection(query);
 
@@ -54,28 +60,39 @@ function CreateNewPost() {
   // Create a new post in firestore
   const createPost = async (e) => {
     e.preventDefault();
-    const uid = auth.currentUser.uid;
-    const ref = firestore.collection('users').doc(uid).collection('posts').doc(slug);
+    const uid = auth.currentUser?.uid;
+    
+    if (!uid) {
+      toast.error('You must be logged in to create a post');
+      return;
+    }
+    
+    try {
+      const ref = firestore.collection('users').doc(uid).collection('posts').doc(slug);
 
-    // Tip: give all fields a default value here
-    const data = {
-      title,
-      slug,
-      uid,
-      username,
-      published: true,
-      content: '# hello world!',
-      createdAt: serverTimestamp(),
-      updatedAt: serverTimestamp(),
-      heartCount: 0,
-    };
+      // Tip: give all fields a default value here
+      const data = {
+        title,
+        slug,
+        uid,
+        username,
+        published: true,
+        content: '# hello world!',
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+        heartCount: 0,
+      };
 
-    await ref.set(data);
+      await ref.set(data);
 
-    toast.success('Post created!');
+      toast.success('Post created!');
 
-    // Imperative navigation after doc is set
-    router.push(`/admin/${slug}`);
+      // Imperative navigation after doc is set
+      router.push(`/admin/${slug}`);
+    } catch (error) {
+      console.error('Error creating post:', error);
+      toast.error('Failed to create post. Please try again.');
+    }
   };
 
   return (
@@ -90,9 +107,9 @@ function CreateNewPost() {
       <p>
         <strong>Slug/url:</strong><code>siteUrl/username/{slug}</code>
       </p>
-      <code><center><strong>#remeber emojis 🤠😱🤪 or other languages(except english) on the <u>POST TITLE</u><br/>Is not SEO friendly</strong></center></code>
-      <center><button type="submit" enable={!isValid} className="btn-green">
-        Crate and Go To your New Post Box
+      <code><center><strong>#remember emojis 🤠😱🤪 or other languages (except English) in the <u>POST TITLE</u><br/>are not SEO friendly</strong></center></code>
+      <center><button type="submit" disabled={!isValid} className="btn-green">
+        Create and Go To your New Post Box
       </button></center>
     </form>
   );
