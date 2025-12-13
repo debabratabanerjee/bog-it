@@ -9,6 +9,10 @@
     "export": "next export",
     "lint": "next lint"
   },
+  "packageManager": "npm@10.8.1",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "firebase": "^8.10.1",
