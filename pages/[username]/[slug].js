@@ -22,9 +22,16 @@ export async function getStaticProps({ params }) {
 
   if (userDoc) {
     const postRef = userDoc.ref.collection('posts').doc(slug);
-    post = postToJSON(await postRef.get());
+    const doc = await postRef.get();
 
+    if (!doc.exists) {
+      return { notFound: true };
+    }
+
+    post = postToJSON(doc);
     path = postRef.path;
+  } else {
+    return { notFound: true };
   }
 
   return {
@@ -63,17 +70,17 @@ export default function Post(props) {
   const post = realtimePost || props.post;
 
   const { user: currentUser } = useContext(UserContext);
-  
+
   const fullUrl = `https://writtendesk.slideway.dev/${post.username}/${post.slug}`;
   const postDescription = post.content?.substring(0, 160).replace(/[#*`]/g, '') || 'Read this amazing post on Written Desk';
-  
+
   // Helper function to get valid date
   const getValidDate = (timestamp) => {
     if (!timestamp || timestamp <= 0) return new Date();
     const date = new Date(timestamp);
     return isNaN(date.getTime()) ? new Date() : date;
   };
-  
+
   // Structured data for SEO
   const structuredData = {
     '@context': 'https://schema.org',
@@ -98,19 +105,19 @@ export default function Post(props) {
   };
 
   return (
-    <main className={styles.container} style={{backgroundImage: "url(/Sun-Tornado.svg)"}}>
-      <Metatags 
+    <main className={styles.container} style={{ backgroundImage: "url(/Sun-Tornado.svg)" }}>
+      <Metatags
         title={`${post.title} | Written Desk`}
         description={postDescription}
         image={post.image || 'https://firebasestorage.googleapis.com/v0/b/blog-it-806bd.appspot.com/o/logo%20and%20stuff%2Ftenor.png?alt=media&token=8a20f4c1-acc5-4e26-838f-d87f8bc30505'}
         url={fullUrl}
       />
-      
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      
+
       <section >
         <PostContent post={post} />
       </section>
@@ -120,15 +127,15 @@ export default function Post(props) {
           <strong>{post.heartCount || 0} 🤍</strong>
         </p>
         <RWebShare
-        data={{
-          text: post.title +" by "+ post.username,
-          url: `/${post.username}/${post.slug}`,
-          title: "Share this article wherever you want"
-        }}
-        onClick={() => console.info("share successful!")}
-      >
-        <button>Share<FiShare/></button>
-      </RWebShare>
+          data={{
+            text: post.title + " by " + post.username,
+            url: `/${post.username}/${post.slug}`,
+            title: "Share this article wherever you want"
+          }}
+          onClick={() => console.info("share successful!")}
+        >
+          <button>Share<FiShare /></button>
+        </RWebShare>
 
 
         <AuthCheck
