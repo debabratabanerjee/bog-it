@@ -969,3 +969,429 @@ input[type="file"] {
     width: 100%;
   }
 }
+/* ==================== EDIT POST PAGE ==================== */
+.edit-post-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.edit-header {
+  background: var(--gradient-primary);
+  padding: 2rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.edit-header-content {
+  flex: 1;
+}
+
+.edit-title {
+  color: white;
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.edit-slug {
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-family: 'Courier New', monospace;
+}
+
+.edit-slug code {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+  color: white;
+}
+
+.guide-toggle-btn {
+  background: white;
+  color: var(--color-blue);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.guide-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  filter: brightness(1);
+}
+
+.edit-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+}
+
+.edit-main {
+  min-width: 0;
+}
+
+.edit-sidebar {
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+}
+
+.tools-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+.tools-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+}
+
+.tools-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tool-btn {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.preview-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.live-btn {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.tool-btn:hover {
+  transform: translateX(5px);
+  box-shadow: var(--shadow-md);
+  filter: brightness(1);
+}
+
+/* ==================== MARKDOWN GUIDE ==================== */
+.markdown-guide {
+  background: white;
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 2px solid #e2e8f0;
+}
+
+.guide-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 0 0 0.5rem 0;
+}
+
+.guide-intro {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin: 0 0 2rem 0;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.guide-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+
+.guide-section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+  color: var(--color-text);
+}
+
+.guide-example {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.guide-code {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.guide-preview {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  min-height: 60px;
+}
+
+.guide-tips {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid var(--color-orange);
+}
+
+.guide-tips h3 {
+  margin: 0 0 1rem 0;
+  color: #92400e;
+}
+
+.guide-tips ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #92400e;
+}
+
+.guide-tips li {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+/* ==================== POST EDITOR ==================== */
+.post-edit-form {
+  margin-bottom: 2rem;
+}
+
+.editor-card,
+.preview-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1.5rem;
+}
+
+.editor-header,
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.editor-header h3,
+.preview-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.preview-header p {
+  margin: 0.5rem 0 0 0;
+  color: #64748b;
+}
+
+.editor-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.publish-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e3e8ef 100%);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.publish-toggle:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.publish-toggle:hover .publish-label {
+  color: white;
+}
+
+.publish-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.publish-label {
+  font-weight: 600;
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+.image-upload-section {
+  margin-bottom: 1.5rem;
+}
+
+.content-textarea {
+  width: 100%;
+  min-height: 500px;
+  padding: 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  line-height: 1.8;
+  resize: vertical;
+  transition: all 0.3s ease;
+}
+
+.content-textarea:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px rgba(59, 73, 223, 0.1);
+}
+
+.content-textarea::placeholder {
+  color: #94a3b8;
+}
+
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fef2f2;
+  border: 2px solid #fca5a5;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  color: #dc2626;
+}
+
+.error-message span {
+  font-size: 1.5rem;
+}
+
+.error-message p {
+  margin: 0;
+  font-weight: 600;
+}
+
+.editor-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.character-count {
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.preview-content {
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  min-height: 400px;
+}
+
+.preview-content h1 { font-size: 2.5rem; margin-top: 0; }
+.preview-content h2 { font-size: 2rem; }
+.preview-content h3 { font-size: 1.5rem; }
+.preview-content img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
+.preview-content code { background: #1e293b; color: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
+.preview-content pre { background: #1e293b; color: #e2e8f0; padding: 1.5rem; border-radius: 8px; overflow-x: auto; }
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.save-btn {
+  padding: 1rem 3rem;
+  background: var(--gradient-success);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.save-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  filter: brightness(1);
+}
+
+.save-btn:disabled {
+  background: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+  filter: brightness(1);
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  font-size: 1.5rem;
+  color: var(--color-blue);
+}
+
+/* ==================== RESPONSIVE - EDIT PAGE ==================== */
+@media (max-width: 1024px) {
+  .edit-layout { grid-template-columns: 1fr; }
+  .edit-sidebar { position: relative; top: 0; }
+  .guide-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .edit-header { flex-direction: column; align-items: flex-start; }
+  .guide-toggle-btn { width: 100%; }
+  .edit-title { font-size: 1.5rem; }
+  .content-textarea { min-height: 300px; font-size: 0.9rem; }
+  .markdown-guide { padding: 1.5rem; }
+  .guide-title { font-size: 1.5rem; }
+}
