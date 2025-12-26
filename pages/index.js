@@ -95,37 +95,49 @@ export default function Home(props) {
     <main style={{backgroundImage: "url(/Sun-Tornado.svg)"}}>
       <Metatags title="Written Desk" description = 'A simple featured blogging app to get connected with others'/>
 
-      <div className="card card-info" style={{backgroundImage: "url(/vv.jpg)", backgroundRepeat: 'no-repeat', backgroundSize:'cover'}}>
-      <center>
-        <h2 >💡 Welcome to <br/>Written Desk</h2>
-        <hr/>
-        <p>👨‍🎤  ✍️  💞 </p>
-        <p>To know more click  <Link href="/about"><button className="btn-google">About</button></Link></p></center>
+      {/* Modern Hero Section */}
+      <div className="hero-section">
+        <div className="hero-content">
+          <h1 className="hero-title">✨ Written Desk</h1>
+          <p className="hero-subtitle">Where thoughts become stories</p>
+          <div className="hero-icons">
+            <span className="hero-icon">📝</span>
+            <span className="hero-icon">💡</span>
+            <span className="hero-icon">🚀</span>
+          </div>
+          <p className="hero-description">Join our community of writers and readers. Share your ideas, discover amazing content.</p>
+          <Link href="/about">
+            <button className="btn-hero">Learn More →</button>
+          </Link>
+        </div>
       </div>
 
       {/* Search and Filter Section */}
-      <div className="card">
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', alignItems: 'center' }}>
-          <input
-            type="text"
-            placeholder="🔍 Search posts, authors, topics..."
-            value={searchTerm}
-            onChange={(e) => handleSearch(e.target.value)}
-            style={{ flex: '1', minWidth: '200px', padding: '0.75rem', borderRadius: '8px', border: '2px solid #ddd' }}
-          />
+      <div className="search-filter-card">
+        <h3 className="section-title">🔍 Discover Content</h3>
+        <div className="search-filter-wrapper">
+          <div className="search-input-wrapper">
+            <input
+              type="text"
+              placeholder="Search posts, authors, topics..."
+              value={searchTerm}
+              onChange={(e) => handleSearch(e.target.value)}
+              className="modern-search-input"
+            />
+          </div>
           <select
             value={sortBy}
             onChange={(e) => handleSortChange(e.target.value)}
-            style={{ padding: '0.75rem', borderRadius: '8px', border: '2px solid #ddd' }}
+            className="modern-select"
           >
             <option value="recent">📅 Most Recent</option>
             <option value="popular">🔥 Most Popular</option>
           </select>
         </div>
         {searchTerm && (
-          <p style={{ marginTop: '0.5rem', color: '#666' }}>
+          <div className="search-results-badge">
             Found {filteredPosts.length} post{filteredPosts.length !== 1 ? 's' : ''}
-          </p>
+          </div>
         )}
       </div>
 

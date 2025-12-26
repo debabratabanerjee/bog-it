@@ -15,6 +15,10 @@ export default function AdminPostsPage(props) {
   return (
     <main>
       <AuthCheck>
+        <div className="admin-header">
+          <h1 className="admin-title">📝 Content Dashboard</h1>
+          <p className="admin-subtitle">Create and manage your posts</p>
+        </div>
         <CreateNewPost />
         <PostList />
         
@@ -37,10 +41,10 @@ function PostList() {
   const posts = querySnapshot?.docs.map((doc) => doc.data());
 
   return (
-    <>
-      <h1>Manage your Posts</h1>
+    <div className="posts-section">
+      <h2 className="section-title-admin">📚 Your Posts</h2>
       <PostFeed posts={posts} admin />
-    </>
+    </div>
   );
 }
 
@@ -96,21 +100,43 @@ function CreateNewPost() {
   };
 
   return (
-    <form onSubmit={createPost}>
-      <h3>Post Title</h3>
-      <input
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="My Awesome Article!"
-        className={styles.input}
-      />
-      <p>
-        <strong>Slug/url:</strong><code>siteUrl/username/{slug}</code>
-      </p>
-      <code><center><strong>#remember emojis 🤠😱🤪 or other languages (except English) in the <u>POST TITLE</u><br/>are not SEO friendly</strong></center></code>
-      <center><button type="submit" disabled={!isValid} className="btn-green">
-        Create and Go To your New Post Box
-      </button></center>
-    </form>
+    <div className="create-post-card">
+      <div className="create-post-header">
+        <h2>✨ Create New Post</h2>
+        <p>Start sharing your thoughts with the world</p>
+      </div>
+      <form onSubmit={createPost} className="create-post-form">
+        <div className="form-group">
+          <label className="form-label">
+            <span className="label-icon">📝</span>
+            Post Title
+          </label>
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="My Awesome Article!"
+            className="modern-input"
+          />
+        </div>
+        
+        <div className="slug-preview">
+          <span className="slug-label">URL Preview:</span>
+          <code className="slug-code">/{slug || 'your-post-url'}</code>
+        </div>
+        
+        <div className="form-tip">
+          <span>💡</span>
+          <p>Tip: Avoid emojis and non-English characters in titles for better SEO</p>
+        </div>
+        
+        <button 
+          type="submit" 
+          disabled={!isValid} 
+          className="btn-create-post"
+        >
+          {isValid ? '✅ Create Post' : '✍️ Keep typing...'}
+        </button>
+      </form>
+    </div>
   );
 }

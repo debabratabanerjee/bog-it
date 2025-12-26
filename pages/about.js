@@ -6,95 +6,148 @@ export default function About() {
     
     <main className={styles.container}>
         <section>
-        <div>
-      <h1>About Written Desk</h1>
+        {/* Hero Section */}
+        <div className="about-hero">
+          <h1 className="about-title">📚 About Written Desk</h1>
+          <p className="about-subtitle">A modern blogging platform for creative minds</p>
+        </div>
 
-      <h2>Table of Content</h2>
-      <table><ul>
-            <li><Link href="#thought">Thought</Link></li>
-            <li><Link href="#features">Features</Link></li>
-            <li><Link href="#faq">FAQ</Link></li>
-            <li><Link href="#thanks">Thank You Note</Link></li>
-            </ul>
-            </table>
-            <div id="thought"></div>
-    <h3 style={{marginTop:'70px'}}><i>Thought for the Project</i></h3>
-      <p >Firstly welcome you to the written Desk. And as you reached here a toast is mandatory for you.</p>
-     <div>toast("Hello World")</div>
-     <p>Its a basic idea likely got from Dev.to and medium a blogging platform.</p>
-     </div>
+        <div className="about-nav-card">
+          <h3>Quick Navigation</h3>
+          <div className="nav-grid">
+            <Link href="#thought" className="nav-item">
+              <span className="nav-icon">💡</span>
+              <span>Our Vision</span>
+            </Link>
+            <Link href="#features" className="nav-item">
+              <span className="nav-icon">✨</span>
+              <span>Features</span>
+            </Link>
+            <Link href="#faq" className="nav-item">
+              <span className="nav-icon">❓</span>
+              <span>FAQ</span>
+            </Link>
+            <Link href="#thanks" className="nav-item">
+              <span className="nav-icon">💜</span>
+              <span>Thank You</span>
+            </Link>
+          </div>
+        </div>
+        <div id="thought" className="section-spacer"></div>
+        <div className="feature-card gradient-card">
+          <h2 className="section-heading">💡 Our Vision</h2>
+          <p className="welcome-text">Welcome to Written Desk! We're thrilled to have you here.</p>
+          <div className="code-snippet">toast("Hello World 👋")</div>
+          <p className="description-text">A blogging platform inspired by Dev.to and Medium, built for writers who want to share their knowledge and connect with like-minded creators.</p>
+        </div>
      
-        <div id="features"></div>
-        <div >   
-      <h3 style={{marginTop:'100px'}}><i>Features of the Project</i></h3>
-
-    <p>
-    - 👨‍🎤 Custom Firebase usernames<br/>
-- 📰 Bot-friendly content (SEO)<br/>
-- 🦾 Advanced SSR, SSG, and ISR techniques<br/>
-- 🔥 Firestore CRUD and data modeling<br/>
-- ⚛️ Reactive forms with react-hook-form<br/>
-- 📂 Image file uploads<br/>
-- 💞 Realtime hearts<br/>
-- 🚀 Security & Deployment
-        </p>    
-     </div>
-     <div id="faq"></div>
-        <div >   
-      <h3 style={{marginTop:'100px'}}><i>Frequently Asked Questions</i></h3>
-
-      <details open>
-
-<summary style={{fontSize:'1.5rem'}}>How to upload image in a blog?</summary>
-
-Ans: You can get the idea by following the video given below:<hr/>
-<iframe width="100%" height="300px" src="https://www.youtube.com/embed/h9P03f3RhVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-</details>
-<br/>
-<br/>
-
-<details >
-
-<summary style={{fontSize:'1.5rem'}}>What is Heart/Unheart?</summary>
-
-Ans: Well this is a feature simple as Like and not liking a Post.
-<iframe width="100%" height="300px" src="https://www.youtube.com/embed/OCb73M0RPgo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-</details>  
-     </div>
-     <div  id="thanks"></div>
-
-     <h3 style={{marginTop:'100px'}}><i>Thank You Note</i></h3>
-     <div className="card card-info">   
-     
-
-    <p>
-    - 👨‍🎤 We all took the part in scribbling at the last few pages of our school or college copies.  <br/>
-- 📰 After a long run we can ignore the fact by saying we cann't think like before.<br/>
-- 🦾 But we always remeber our teenage life as an adventure.<br/>-🔥 So live a little and share your childhood thought.
-        </p> 
-           
-     </div>
-     <div><center><Link href="/" >
+        <div id="features" className="section-spacer"></div>
+        <div className="feature-card">
+          <h2 className="section-heading">✨ Powerful Features</h2>
+          <div className="features-grid">
+            <div className="feature-item">
+              <span className="feature-emoji">👨‍🎤</span>
+              <h4>Custom Usernames</h4>
+              <p>Create your unique Firebase username</p>
+            </div>
+            <div className="feature-item">
+              <span className="feature-emoji">📰</span>
+              <h4>SEO Optimized</h4>
+              <p>Bot-friendly content for better reach</p>
+            </div>
+            <div className="feature-item">
+              <span className="feature-emoji">🦶</span>
+              <h4>Advanced Rendering</h4>
+              <p>SSR, SSG, and ISR techniques</p>
+            </div>
+            <div className="feature-item">
+              <span className="feature-emoji">🔥</span>
+              <h4>Firestore CRUD</h4>
+              <p>Real-time data modeling</p>
+            </div>
+            <div className="feature-item">
+              <span className="feature-emoji">⚛️</span>
+              <h4>Reactive Forms</h4>
+              <p>Powered by react-hook-form</p>
+            </div>
+            <div className="feature-item">
+              <span className="feature-emoji">📂</span>
+              <h4>Image Uploads</h4>
+              <p>Easy file management</p>
+            </div>
+            <div className="feature-item">
+              <span className="feature-emoji">💞</span>
+              <h4>Realtime Hearts</h4>
+              <p>Engage with content instantly</p>
+            </div>
+            <div className="feature-item">
+              <span className="feature-emoji">🚀</span>
+              <h4>Secure & Fast</h4>
+              <p>Production-ready deployment</p>
+            </div>
+          </div>
+        </div>
+        <div id="faq" className="section-spacer"></div>
+        <div className="feature-card">
+          <h2 className="section-heading">❓ Frequently Asked Questions</h2>
           
-          <button className="btn-blue">Go Home</button>
-        </Link></center>
-         </div>
-     
-     </section>
-     <aside  className="card">
-         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFuaXVdS3bJQS8WUuM6dOIaSKlCR2pXjwzBQ&usqp=CAU" />
-    <div className="card card-info" >
-     
-    <Link href="https://www.linkedin.com/in/debabrata-banerjee-0748b3180/" >
-          
-          <button><img src="/icons8-linkedin.svg"/></button>
-        </Link>
+          <details className="faq-item" open>
+            <summary className="faq-question">How to upload images in a blog?</summary>
+            <div className="faq-answer">
+              <p>Check out this helpful video tutorial:</p>
+              <div className="video-wrapper">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/h9P03f3RhVw" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              </div>
+            </div>
+          </details>
+
+          <details className="faq-item">
+            <summary className="faq-question">What is Heart/Unheart?</summary>
+            <div className="faq-answer">
+              <p>A simple feature like "liking" a post. Show appreciation for content you enjoy!</p>
+              <div className="video-wrapper">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/OCb73M0RPgo" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              </div>
+            </div>
+          </details>
+        </div>
+        <div id="thanks" className="section-spacer"></div>
+        <div className="feature-card gradient-card-purple">
+          <h2 className="section-heading">💜 Thank You</h2>
+          <div className="thank-you-content">
+            <p className="thank-you-text">
+              Remember those late-night scribbles in the back pages of our notebooks? The raw, unfiltered thoughts we couldn't help but pour onto paper?
+            </p>
+            <p className="thank-you-text">
+              We may say we can't think like before, but those teenage adventures live on in our memories. Written Desk is here to reignite that spark.
+            </p>
+            <p className="thank-you-highlight">
+              <strong>✨ Live a little. Share your stories. Connect with others.</strong>
+            </p>
+          </div>
+          <div className="cta-buttons">
+            <Link href="/">
+              <button className="btn-primary">🏠 Go Home</button>
+            </Link>
+            <Link href="/enter">
+              <button className="btn-secondary">✍️ Start Writing</button>
+            </Link>
+          </div>
+        </div>
         
-      </div>
-      
-      </aside >
+     </section>
+     <aside className="about-sidebar">
+         <div className="sidebar-card">
+           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFuaXVdS3bJQS8WUuM6dOIaSKlCR2pXjwzBQ&usqp=CAU" alt="Profile" className="sidebar-image" />
+           <h3>Connect With Me</h3>
+           <Link href="https://www.linkedin.com/in/debabrata-banerjee-0748b3180/">
+             <button className="social-button">
+               <img src="/icons8-linkedin.svg" alt="LinkedIn" />
+               <span>LinkedIn</span>
+             </button>
+           </Link>
+         </div>
+      </aside>
       
     </main>
   );
