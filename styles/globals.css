@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=optional');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=optional');
 
 :root {
   --color-bg: #eef0f1;
@@ -151,6 +151,9 @@ button[disabled]{
 button.btn-blue {
   background-color: var(--color-blue);
   color: white;
+  padding: 0.75rem 1.5rem;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 button.btn-red {
@@ -178,7 +181,9 @@ button.btn-logo {
   color: white;
   text-transform: uppercase;
   font-size: 1.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
+  min-width: 48px;
+  min-height: 48px;
 }
 
 /* Cards */
@@ -2001,7 +2006,7 @@ input[type="file"] {
 }
 
 .trending-item span {
-  color: #e74c3c !important;
+  color: #c41c3b !important;
 }
 
 /* Select dropdown improvements */

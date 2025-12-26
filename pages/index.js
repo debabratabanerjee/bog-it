@@ -158,8 +158,8 @@ export default function Home(props) {
               .map((post) => (
                 <Link key={post.slug} href={`/${post.username}/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <div style={{ padding: '0.75rem', background: 'rgba(255, 255, 255, 0.9)', borderRadius: '8px', cursor: 'pointer', border: '1px solid #ddd', transition: 'all 0.2s' }} className="trending-item">
-                    <strong style={{ color: '#333', fontSize: '1rem' }}>{post.title}</strong>
-                    <span style={{ float: 'right', color: '#e74c3c', fontWeight: 'bold' }}>💗 {post.heartCount}</span>
+                    <strong style={{ color: '#1e293b', fontSize: '1rem' }}>{post.title}</strong>
+                    <span style={{ float: 'right', color: '#c41c3b', fontWeight: 'bold' }}>💗 {post.heartCount}</span>
                   </div>
                 </Link>
               ))}
