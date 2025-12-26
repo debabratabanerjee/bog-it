@@ -10,51 +10,64 @@ function PostItem({ post, admin = false }) {
   // Naive method to calc word count and read time
   const wordCount = post?.content.trim().split(/\s+/g).length;
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
+  
+  // Extract first paragraph or truncated content for preview
+  const contentPreview = post?.content
+    ?.replace(/[#*`]/g, '')
+    .split('\n')
+    .filter(line => line.trim())
+    [0]
+    ?.substring(0, 150) || '';
 
   return (
-    <div className="card">
-      <Link href={`/${post.username}`}>
-        <strong>By @{post.username}</strong>
-      </Link>
-      <div style={{float: 'right'}}>
-      <RWebShare  
-        data={{
-          text: post.title +" by "+ post.username,
-          url: `/${post.username}/${post.slug}`,
-          title: "Share as much as you want"
-        }}
-        onClick={() => console.info("share successful!")}
-      >
-        <FcShare size={30}/>
-      </RWebShare>
+    <article className="post-card">
+      <div className="post-card-header">
+        <Link href={`/${post.username}`} className="author-link">
+          <div className="author-avatar">{post.username[0].toUpperCase()}</div>
+          <div className="author-info">
+            <strong className="author-name">@{post.username}</strong>
+            <span className="post-date">{minutesToRead} min read</span>
+          </div>
+        </Link>
+        <RWebShare  
+          data={{
+            text: post.title + " by " + post.username,
+            url: `https://writtendesk.slideway.dev/${post.username}/${post.slug}`,
+            title: "Check out this post on Written Desk"
+          }}
+          onClick={() => console.info("share successful!")}
+        >
+          <button className="share-icon-btn">
+            <FcShare size={24}/>
+          </button>
+        </RWebShare>
       </div>
 
-      <Link href={`/${post.username}/${post.slug}`}>
-        <h2>
-          {post.title}...<br/><pre><p>🕵🏻Tap to 👁 the post🕵🏻</p></pre>
-        </h2>
+      <Link href={`/${post.username}/${post.slug}`} className="post-link">
+        <div className="post-card-content">
+          <h2 className="post-card-title">{post.title}</h2>
+          {contentPreview && (
+            <p className="post-card-preview">{contentPreview}...</p>
+          )}
+        </div>
       </Link>
 
-      <footer>
-        <span>
-          {wordCount} words. {minutesToRead} min read 
-        </span>
-       
-        <span className="push-left">💗 {post.heartCount || 0} Hearts</span>
-      </footer>
-
-      {/* If admin view, show extra controls for user */}
-      {admin && (
-        <>
-          <Link href={`/admin/${post.slug}`}>
-            <h3>
-              <button className="btn-blue">Edit</button>
-            </h3>
-          </Link>
-
-          {post.published ? <p className="text-success">Live</p> : <p className="text-danger">Unpublished</p>}
-        </>
-      )}
-    </div>
+      <div className="post-card-footer">
+        <div className="post-meta">
+          <span className="meta-item">📝 {wordCount} words</span>
+          <span className="meta-item">💗 {post.heartCount || 0}</span>
+        </div>
+        {admin && (
+          <div className="admin-controls">
+            <Link href={`/admin/${post.slug}`}>
+              <button className="edit-mini-btn">✏️ Edit</button>
+            </Link>
+            <span className={post.published ? "status-live" : "status-draft"}>
+              {post.published ? '🌐 Live' : '📝 Draft'}
+            </span>
+          </div>
+        )}
+      </div>
+    </article>
   );
 }

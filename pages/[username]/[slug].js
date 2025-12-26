@@ -98,7 +98,7 @@ export default function Post(props) {
   };
 
   return (
-    <main className={styles.container} style={{backgroundImage: "url(/Sun-Tornado.svg)"}}>
+    <main className="post-page-container">
       <Metatags 
         title={`${post.title} | Written Desk`}
         description={postDescription}
@@ -111,42 +111,85 @@ export default function Post(props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      <section >
-        <PostContent post={post} />
-      </section>
-
-      <aside className="card">
-        <p>
-          <strong>{post.heartCount || 0} 🤍</strong>
-        </p>
-        <RWebShare
-        data={{
-          text: post.title +" by "+ post.username,
-          url: `/${post.username}/${post.slug}`,
-          title: "Share this article wherever you want"
-        }}
-        onClick={() => console.info("share successful!")}
-      >
-        <button>Share<FiShare/></button>
-      </RWebShare>
-
-
-        <AuthCheck
-          fallback={
-            <Link href="/enter">
-              <button>💗 Sign Up</button>
-            </Link>
-          }
-        >
-          <HeartButton postRef={postRef} />
-        </AuthCheck>
-
-        {currentUser?.uid === post.uid && (
-          <Link href={`/admin/${post.slug}`}>
-            <button className="btn-blue">Edit Post</button>
+      {/* Post Header */}
+      <div className="post-header-banner">
+        <div className="post-header-content">
+          <Link href={`/${post.username}`} className="post-author-link">
+            <div className="post-author-avatar">{post.username[0].toUpperCase()}</div>
+            <div>
+              <p className="post-author-name">@{post.username}</p>
+              <p className="post-date">
+                {new Date(post.createdAt).toLocaleDateString('en-US', { 
+                  year: 'numeric', 
+                  month: 'long', 
+                  day: 'numeric' 
+                })}
+              </p>
+            </div>
           </Link>
-        )}
-      </aside>
+        </div>
+      </div>
+
+      <div className="post-layout">
+        <article className="post-main-content">
+          <PostContent post={post} />
+        </article>
+
+        <aside className="post-sidebar">
+          <div className="post-actions-card">
+            <div className="heart-section">
+              <div className="heart-count">
+                <span className="heart-icon">💗</span>
+                <span className="heart-number">{post.heartCount || 0}</span>
+              </div>
+              <AuthCheck
+                fallback={
+                  <Link href="/enter">
+                    <button className="action-btn signup-btn">💗 Sign Up to Like</button>
+                  </Link>
+                }
+              >
+                <HeartButton postRef={postRef} />
+              </AuthCheck>
+            </div>
+
+            <div className="share-section">
+              <RWebShare
+                data={{
+                  text: post.title + " by " + post.username,
+                  url: fullUrl,
+                  title: "Check out this amazing post!"
+                }}
+                onClick={() => console.info("share successful!")}
+              >
+                <button className="action-btn share-btn">
+                  <FiShare /> Share Post
+                </button>
+              </RWebShare>
+            </div>
+
+            {currentUser?.uid === post.uid && (
+              <Link href={`/admin/${post.slug}`}>
+                <button className="action-btn edit-btn">✏️ Edit Post</button>
+              </Link>
+            )}
+          </div>
+
+          {/* Author Card */}
+          <div className="author-card">
+            <h3>About the Author</h3>
+            <Link href={`/${post.username}`}>
+              <div className="author-card-content">
+                <div className="author-card-avatar">{post.username[0].toUpperCase()}</div>
+                <div>
+                  <strong>@{post.username}</strong>
+                  <p>View Profile →</p>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </aside>
+      </div>
     </main>
   );
 }
