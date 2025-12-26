@@ -17,6 +17,12 @@
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
 }
+
+/* Font optimization - prevent layout shift during font loading */
+body {
+  font-display: swap;
+}
+
 html,
 body {
   padding: 0;
@@ -1624,6 +1630,11 @@ input[type="file"] {
   margin: 0;
 }
 
+.post-header-banner .post-date {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+}
+
 .post-layout {
   display: grid;
   grid-template-columns: 1fr 350px;
@@ -1947,5 +1958,115 @@ input[type="file"] {
   
   .post-meta {
     font-size: 0.85rem;
+  }
+}
+
+/* ==================== ACCESSIBILITY IMPROVEMENTS ==================== */
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Improve button touch targets */
+.btn-hero,
+.btn-logo,
+.btn-blue {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Share button size */
+.share-icon-btn {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+/* Trending section improved contrast */
+.card.card-info {
+  background: white;
+}
+
+.trending-item {
+  color: #1e293b !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+.trending-item span {
+  color: #e74c3c !important;
+}
+
+/* Select dropdown improvements */
+.modern-select {
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+}
+
+/* Better link focus states for accessibility */
+a:focus,
+button:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Improved heading contrast for trending */
+.card.card-info h2 {
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+/* ==================== PERFORMANCE OPTIMIZATIONS ==================== */
+/* LCP optimization - ensure critical elements paint first */
+.hero-section,
+.search-filter-card,
+main {
+  contain: layout style paint;
+}
+
+/* Optimize background image loading */
+main {
+  will-change: background-image;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Critical content should paint first */
+.hero-content {
+  contain: content;
+}
+
+/* Reduce paint area for animations */
+.post-card {
+  contain: layout style;
+}
+
+.post-card:hover {
+  contain: unset; /* Allow transform to work */
+}
+
+/* Lazy load non-critical elements after LCP */
+.trending-section {
+  content-visibility: auto;
+}
+
+/* Optimize font rendering */
+html, body, main {
+  font-display: swap;
+}
+
+/* Reduce unused CSS by grouping media queries */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

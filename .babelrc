@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "targets": {
+            "browsers": ["chrome >= 90", "firefox >= 88", "safari >= 14", "edge >= 90"]
+          },
+          "useBuiltIns": "entry",
+          "corejs": 3,
+          "modules": false,
+          "exclude": ["transform-async-to-generator", "transform-regenerator"]
+        }
+      }
+    ]
+  ]
+}

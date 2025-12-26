@@ -92,7 +92,7 @@ export default function Home(props) {
   };
 
   return (
-    <main style={{backgroundImage: "url(/Sun-Tornado.svg)"}}>
+    <main style={{backgroundImage: "url(/Sun-Tornado.svg)", backgroundSize: 'cover', backgroundAttachment: 'fixed'}}>
       <Metatags title="Written Desk" description = 'A simple featured blogging app to get connected with others'/>
 
       {/* Modern Hero Section */}
@@ -114,7 +114,7 @@ export default function Home(props) {
 
       {/* Search and Filter Section */}
       <div className="search-filter-card">
-        <h3 className="section-title">🔍 Discover Content</h3>
+        <h2 className="section-title">🔍 Discover Content</h2>
         <div className="search-filter-wrapper">
           <div className="search-input-wrapper">
             <input
@@ -125,14 +125,19 @@ export default function Home(props) {
               className="modern-search-input"
             />
           </div>
-          <select
-            value={sortBy}
-            onChange={(e) => handleSortChange(e.target.value)}
-            className="modern-select"
-          >
-            <option value="recent">📅 Most Recent</option>
-            <option value="popular">🔥 Most Popular</option>
-          </select>
+          <div>
+            <label htmlFor="sort-select" className="sr-only">Sort posts by</label>
+            <select
+              id="sort-select"
+              value={sortBy}
+              onChange={(e) => handleSortChange(e.target.value)}
+              className="modern-select"
+              aria-label="Sort posts by"
+            >
+              <option value="recent">📅 Most Recent</option>
+              <option value="popular">🔥 Most Popular</option>
+            </select>
+          </div>
         </div>
         {searchTerm && (
           <div className="search-results-badge">
@@ -144,7 +149,7 @@ export default function Home(props) {
       {/* Trending Posts */}
       {!searchTerm && posts.length > 0 && (
         <div className="card card-info">
-          <h3 style={{ color: '#333' }}>🔥 Trending Now</h3>
+          <h2 style={{ color: '#1e293b', marginBottom: '1rem' }}>🔥 Trending Now</h2>
           <div style={{ display: 'grid', gap: '0.5rem' }}>
             {posts
               .filter(p => (p.heartCount || 0) > 0)

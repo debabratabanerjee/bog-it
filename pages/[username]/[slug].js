@@ -67,11 +67,35 @@ export default function Post(props) {
   const fullUrl = `https://writtendesk.slideway.dev/${post.username}/${post.slug}`;
   const postDescription = post.content?.substring(0, 160).replace(/[#*`]/g, '') || 'Read this amazing post on Written Desk';
   
-  // Helper function to get valid date
+  // Helper function to get valid date - handles Firebase timestamp
   const getValidDate = (timestamp) => {
-    if (!timestamp || timestamp <= 0) return new Date();
+    if (!timestamp) return new Date();
+    // If it's a number (milliseconds), use it directly
+    if (typeof timestamp === 'number') {
+      return new Date(timestamp);
+    }
+    // If it's a Firebase Timestamp object, convert it
+    if (timestamp.toMillis) {
+      return new Date(timestamp.toMillis());
+    }
+    // If it's a date object or string, convert it
     const date = new Date(timestamp);
     return isNaN(date.getTime()) ? new Date() : date;
+  };
+  
+  // Format date for display
+  const formatDate = (timestamp) => {
+    try {
+      const date = getValidDate(timestamp);
+      return date.toLocaleDateString('en-US', { 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+      });
+    } catch (error) {
+      console.error('Error formatting date:', error);
+      return 'Recently';
+    }
   };
   
   // Structured data for SEO
@@ -115,16 +139,12 @@ export default function Post(props) {
       <div className="post-header-banner">
         <div className="post-header-content">
           <Link href={`/${post.username}`} className="post-author-link">
-            <div className="post-author-avatar">{post.username[0].toUpperCase()}</div>
+            <div className="post-author-avatar">
+              {post.username?.charAt(0).toUpperCase() || 'U'}
+            </div>
             <div>
               <p className="post-author-name">@{post.username}</p>
-              <p className="post-date">
-                {new Date(post.createdAt).toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })}
-              </p>
+              <p className="post-date">{formatDate(post.createdAt)}</p>
             </div>
           </Link>
         </div>
@@ -180,7 +200,9 @@ export default function Post(props) {
             <h3>About the Author</h3>
             <Link href={`/${post.username}`}>
               <div className="author-card-content">
-                <div className="author-card-avatar">{post.username[0].toUpperCase()}</div>
+                <div className="author-card-avatar">
+                  {post.username?.charAt(0).toUpperCase() || 'U'}
+                </div>
                 <div>
                   <strong>@{post.username}</strong>
                   <p>View Profile →</p>

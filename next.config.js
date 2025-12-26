@@ -10,6 +10,17 @@ module.exports = withPWA({
   },
   reactStrictMode: true,
   swcMinify: true,
+  // Target modern browsers to reduce polyfills (13 KiB savings)
+  swcMinifyOptions: {
+    compress: true,
+    mangle: true,
+  },
+  // Optimize for modern browsers - removes legacy polyfills
+  targets: {
+    chrome: '90',
+    firefox: '88',
+    safari: '14',
+  },
   // SEO optimization
   i18n: {
     locales: ['en'],

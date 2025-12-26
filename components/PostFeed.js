@@ -23,7 +23,9 @@ function PostItem({ post, admin = false }) {
     <article className="post-card">
       <div className="post-card-header">
         <Link href={`/${post.username}`} className="author-link">
-          <div className="author-avatar">{post.username[0].toUpperCase()}</div>
+          <div className="author-avatar">
+            {post.username?.charAt(0).toUpperCase() || 'U'}
+          </div>
           <div className="author-info">
             <strong className="author-name">@{post.username}</strong>
             <span className="post-date">{minutesToRead} min read</span>
@@ -37,7 +39,7 @@ function PostItem({ post, admin = false }) {
           }}
           onClick={() => console.info("share successful!")}
         >
-          <button className="share-icon-btn">
+          <button className="share-icon-btn" aria-label="Share this post">
             <FcShare size={24}/>
           </button>
         </RWebShare>
