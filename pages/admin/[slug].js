@@ -99,9 +99,9 @@ function PostManager() {
 }
 
 function PostForm({ defaultValues, postRef, preview }) {
-  const { register, errors, handleSubmit, formState, reset, watch } = useForm({ defaultValues, mode: 'onChange' });
+  const { register, handleSubmit, formState, reset, watch } = useForm({ defaultValues, mode: 'onChange' });
 
-  const { isValid, isDirty } = formState;
+  const { isValid, isDirty, errors } = formState;
 
   const updatePost = async ({ content, published }) => {
     try {
@@ -132,7 +132,7 @@ function PostForm({ defaultValues, postRef, preview }) {
         </button>
         
         <fieldset>
-          <input className={styles.checkbox} name="published" type="checkbox" ref={register} />
+          <input className={styles.checkbox} name="published" type="checkbox" {...register('published')} />
           <label>Published</label>
         </fieldset>
       <div className={preview ? styles.hidden : styles.controls}>
@@ -140,7 +140,7 @@ function PostForm({ defaultValues, postRef, preview }) {
 
         <textarea
           name="content"
-          ref={register({
+          {...register('content', {
             maxLength: { value: 20000, message: 'content is too long' },
             minLength: { value: 10, message: 'content is too short' },
             required: { value: true, message: 'content is required' },
